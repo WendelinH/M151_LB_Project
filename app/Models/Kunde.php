@@ -14,10 +14,20 @@ use Illuminate\Database\Eloquent\Model;
  * @property string strasse
  * @property string tel
  * @property string vorname
+ * @property Carbon created_at
+ * @property Carbon updated_at
  */
 class Kunde extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'kunde_seit',
+        'nachname',
+        'ort',
+        'plz',
+        'strasse',
+        'tel',
+        'vorname'
+    ];
 }

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('bestell_position_id')->constrained();
             $table->foreignId('inhalt_id')->constrained();
+            
+            $table->timestamps();
         });
     }
 

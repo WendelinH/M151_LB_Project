@@ -10,12 +10,17 @@
 - [Documentation](#documentation)
   - [Inhaltsverzeichnis](#inhaltsverzeichnis)
   - [Laravel Start](#laravel-start)
+  - [Created Modles](#created-modles)
+  - [Create Factorys](#create-factorys)
 
 
 ## Laravel Start
 Ich habe das Projekt an dem wir in der Schuhle gearbeitet haben kopiert und abgeändert.
 
+## Created Modles
 Als erst habe ich alle Models und Migrations Dateien erstelt und den nötigen Code reingeschrieben.
+
+Models:
 - Artikel
   - [app/Models/Artikel.php](app/Models/Artikel.php)
   - [database/migrations/2022_06_17_084135_artikel.php](database/migrations/2022_06_17_084135_artikel.php)
@@ -37,3 +42,6 @@ Als erst habe ich alle Models und Migrations Dateien erstelt und den nötigen Co
 - Kunde
   - [app/Models/Kunde.php](app/Models/Kunde.php)
   - [database/migrations/2022_06_17_085744_kunde.php](database/migrations/2022_06_17_085744_kunde.php)
+
+## Create Factorys
+Ich habe für alle Models eine Factory erstelt um Test daten zu erstellen.

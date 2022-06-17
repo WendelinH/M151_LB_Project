@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('bemerkungen')->default(null);
             $table->date('datum');
             $table->foreignId('kunde_id')->constrained();
+            
+            $table->timestamps();
         });
     }
 

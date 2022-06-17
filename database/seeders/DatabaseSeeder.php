@@ -16,5 +16,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         \App\Models\Airport::factory()->count(5)->create();
+
+        \App\Models\Kunde::factory()->count(5)->create();
+        \App\Models\Inhalt::factory()->count(5)->create();
+        \App\Models\Artikel::factory()->count(5)->create();
+        \App\Models\Bestellung::factory()->count(5)->create();
+        \App\Models\Konfiguration::factory()->count(5)->create();
+        \App\Models\BestellPosition::factory()->count(5)->create();
+        \App\Models\BestellteKonfiguration::factory()->count(5)->create();
     }
 }

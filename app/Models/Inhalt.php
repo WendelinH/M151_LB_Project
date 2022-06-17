@@ -11,10 +11,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property string bezeichnung
  * @property float preis
  * @property string image_path
+ * @property Carbon created_at
+ * @property Carbon updated_at
  */
 class Inhalt extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'bezeichnung',
+        'preis',
+        'image_path'
+    ];
 }

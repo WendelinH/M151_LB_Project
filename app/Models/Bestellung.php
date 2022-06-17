@@ -10,10 +10,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property string bemerkungen
  * @property Date datum
  * @property int kunde_id
+ * @property Carbon created_at
+ * @property Carbon updated_at
  */
 class Bestellung extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'bemerkungen',
+        'datum',
+        'kunde_id'
+    ];
 }

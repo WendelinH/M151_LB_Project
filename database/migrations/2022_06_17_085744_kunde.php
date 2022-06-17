@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('strasse');
             $table->string('tel');
             $table->string('vorname');
+            
+            $table->timestamps();
         });
     }
 
