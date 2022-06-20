@@ -19,44 +19,20 @@
             </div>
 
             @auth
-            <table class='table table-bordered'>
-                <thead>
-                    <tr>
-                        <td>id</td>
-                        <td>bezeichnung</td>
-                        <td>preis</td>
-                        <td>image_path</td>
-                        <td>created_at</td>
-                        <td>updated_at</td>
-                        <td>CRUD</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($artikels as $artikel)
-                    <tr>
-                        <td>{{ $artikel->id }}</td>
-                        <td>{{ $artikel->bezeichnung }}</td>
-                        <td>{{ $artikel->preis }}</td>
-                        <td>{{ $artikel->image_path }}</td>
-                        <td>{{ $artikel->created_at }}</td>
-                        <td>{{ $artikel->updated_at }}</td>
-                        <td>
-                            <a href="{{ route('artikel.show', ['artikel' => $artikel->id]); }}" class="btn btn-info" role="button"><i class="las la-eye"></i>Show</a>
-                            <a href="{{ route('artikel.edit', ['artikel' => $artikel->id]); }}" class="btn btn-warning" role="button"><i class="las la-edit"></i>Edit</a>
-                            <form 
-                                method="post" 
-                                action="{{ action([\App\Http\Controllers\ArtikelController::class, 'destroy'], $artikel) }}" 
-                                class="d-inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="las la-trash"></i>Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            @endauth
+            <div class="row">
+                @foreach ($artikels as $artikel)
+                <div class="col-md-3">
+                    <div class="card m-2" style="width: 18rem;">
+                        <img class="card-img-top" src="img/{{ $artikel->image_path }}" alt="{{ $artikel->image_path }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $artikel->bezeichnung }}</h5>
+                            <p class="card-text">{{ $artikel->preis }}</p>
+                            <a href="{{ route('artikel.show', ['artikel' => $artikel->id]); }}" class="btn btn-primary">Bestellen</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
             @guest
                 <p>Bitte Anmelden</p>
             @endguest

@@ -3,7 +3,21 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        @auth
+        <div class="col-md-8 mb-3">
+            <div class="card">
+                <div class="card-header">{{ __('Artikel') }}</div>
+
+                <div class="card-body">
+                    <div>
+                        <a href="{{ route('artikel.index'); }}" class="btn btn-primary btn-lg btn-block">Auswahl anzeigen.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endauth
+
+        <div class="col-md-8 mb-3">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
