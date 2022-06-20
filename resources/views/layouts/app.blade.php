@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'Laravel') }} <i class="lab la-mandalorian"></i>
+                    {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -39,11 +39,11 @@
 
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="las la-rocket"></i>{{ __('Airports') }}
+                                {{ __('Artikel') }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{ route('airports.index') }}"><i class="las la-rocket"></i>{{ __('Airports') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ route('airports.create') }}"><i class="las la-plus"></i>{{ __('Create') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('artikel.index') }}">{{ __('Artikel') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('artikel.create') }}"><i class="las la-plus"></i>{{ __('Create') }}</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>

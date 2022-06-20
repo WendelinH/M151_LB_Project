@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
 
-            <h1>Airport - {{ $airport->name }}</h1>
+            <h1>Artikel - {{ $airport->name }}</h1>
 
             <h2>Edit</h2>
 

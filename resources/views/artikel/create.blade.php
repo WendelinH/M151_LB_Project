@@ -9,10 +9,10 @@
 
             <h2>Create</h2>
 
-            @auth
+            @auth()
             <form 
                 method="post" 
-                action="{{ action([\App\Http\Controllers\AirportsViewController::class, 'store']) }}">
+                action="{{ action([\App\Http\Controllers\ArtikelController::class, 'store']) }}">
                 @csrf
                 @method('POST')
                 <div class="form-group">
