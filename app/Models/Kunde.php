@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int id
- * @property Date kunde_seit
+ * @property Carbon kunde_seit
  * @property string nachname
  * @property string ort
  * @property string plz

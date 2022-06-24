@@ -50,10 +50,10 @@
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ __('Dropdown 1') }}
+                                {{ __('Kunde') }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">{{ __('Link 1') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('kunde.create') }}"><i class="las la-plus"></i>{{ __('Create') }}</a></li>
                                 <li><a class="dropdown-item" href="#">{{ __('Link 2') }}</a></li>
                             </ul>
                         </li>

@@ -20,6 +20,8 @@ Route::get('/laravel', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('.home');
 
 Route::resource('/artikel', App\Http\Controllers\ArtikelController::class);
+Route::resource('/kunde', App\Http\Controllers\KundeController::class);
 
