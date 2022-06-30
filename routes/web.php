@@ -19,9 +19,15 @@ Route::get('/laravel', function () {
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('.home');
+Route::get('/', function () {
+    return redirect('/artikel');
+});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::resource('/artikel', App\Http\Controllers\ArtikelController::class);
 Route::resource('/kunde', App\Http\Controllers\KundeController::class);
+Route::resource('/warenkorb_artikel', App\Http\Controllers\WarenkorbArtikelController::class);
 
+Route::get('/danke', function () {
+    return view('danke');
+});

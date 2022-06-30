@@ -52,7 +52,7 @@ class ArtikelController extends Controller
 
             return back();
         }
-        return redirect(route('artikel.index'));
+        return redirect(route('home'));
     } */
 
     public function destroy(Artikel $artikel): RedirectResponse

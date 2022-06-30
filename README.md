@@ -13,6 +13,10 @@
   - [Created Modles](#created-modles)
   - [Insert PHPMyAdmin](#insert-phpmyadmin)
   - [Create Factorys](#create-factorys)
+  - [Views erstellen](#views-erstellen)
+  - [Warenkorb erstellen](#warenkorb-erstellen)
+  - [Issues](#issues)
+  - [Aufgetauchte Fragen](#aufgetauchte-fragen)
 
 
 ## Laravel Start
@@ -88,3 +92,28 @@ VALUES(1, 1),(1, 2),(1, 3),(1, 4),(1, 5),(1, 8),(2, 1),(2, 3),(2, 4),(2, 5),(2, 
 
 ## Create Factorys
 Ich habe für alle Models eine Factory erstellt um Test daten zu erstellen.
+
+
+## Views erstellen
+Alls erstes habe ich mit der Main Page angefangen danach habe ich die Artikel index gemacht wo man einen überblich über alle Artikel hat.
+Danach habe ich mich um den Artikel show View gekümmert das die Artikel mit dessen Inhalen schön aufgezeigt werden.
+Zunächst habe ich das Erstellungs Formular für einen Kunden erstellt. Die nächste View die ich erstelt habe war die Kunde Show View.
+
+
+## Warenkorb erstellen
+Zuerst habe ich das Model, die Migration und Controller erstelt.
+
+## Issues
+Was hate ich im verlauf des Projektes für Problemme.
+- Ich habe zwei spalten bei den Models vergessen zu erstellen was dan zu fehler gefürt hat.
+
+## Aufgetauchte Fragen
+Im verlaufe sin ein Paar Fragen aufgetaucht.
+- Wen als erstes die Produkt_Position erstelt werden us dies aber ein Forigen key von Bestellung braucht / wie kan man Temporär zwischen verschidenen Views daten speichern Kunde Id ...
+  - Warenkorb erstellen
+- Wie erstellt man einen Admin-User ?
+  - erledigt
+- Wie soll man das mit dem Kunden Infos und zurück machen Edit-View oder Create view mit ausgefültem Formular.
+  - edit View xD
+- Show Kunde View anders lösen nicht mit show und id in Url
+  - show und id in URL und überprüfen ob der richtige user eingelogt ist.
