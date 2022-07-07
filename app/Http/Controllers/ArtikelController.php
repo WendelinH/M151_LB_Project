@@ -29,22 +29,28 @@ class ArtikelController extends Controller
         return view('artikel.show',['artikel'=>$artikel, 'inhalte'=>$inhalte]);
     }
 
-    /* public function edit(Artikel $artikel)
-    {
-        return view('artikel.edit',['artikel'=>$artikel]);
-    } */
-
     public function create(Artikel $artikel)
     {
-        return view('artikel.create');
+        $inhalte = Inhalt::all();
+        return view('artikel.create',['inhalte'=>$inhalte]);
     }
 
-    /* public function store(Request $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         try {
-            Artikel::query()->create([
-                'name' => $request->input('name'),
+            $artikel = Artikel::query()->create([
+                'bezeichnung' => $request->input('bezeichnung'),
+                'preis' => $request->input('preis'),
+                'image_path' => $request->input('image_path'),
             ]);
+            foreach ($request->all() as $index => $item){
+                if ($item == 'true'){
+                    Konfiguration::query()->create([
+                        'artikel_id' => $artikel->id,
+                        'inhalt_id' => $index,
+                    ]);
+                }
+            }
         } catch (\Exception $exeption) {
             Log::error('Failed '+ $exeption, ['exeption' => $exeption->getMessage()]);
 
@@ -52,17 +58,46 @@ class ArtikelController extends Controller
 
             return back();
         }
-        return redirect(route('home'));
-    } */
+        return redirect(route('artikel.index'));
+    }
 
     public function destroy(Artikel $artikel): RedirectResponse
     {
         $artikel->delete();
-        return back();
+        return redirect(route('artikel.show'));;
     }
 
-    /* public function update(Artikel $artikel)
+    public function edit(Artikel $artikel)
     {
-        dd($artikel);
-    } */
+        $usedInhalte =  DB::table('artikels')
+            ->join('konfigurations', 'artikels.id', '=', 'konfigurations.artikel_id')
+            ->join('inhalts', 'inhalts.id', '=', 'konfigurations.inhalt_id')
+            ->select('inhalts.*')
+            ->where('artikels.id', '=', $artikel->id)
+            ->get();
+        $inhalte =  Inhalt::all();
+        return view('artikel.edit',['artikel'=>$artikel, 'usedInhalte'=>$usedInhalte, 'inhalte'=>$inhalte]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $artikel = Artikel::find($id);
+        $artikel->bezeichnung = $request->input('bezeichnung');
+        $artikel->preis = $request->input('preis');
+        $artikel->image_path = $request->input('image_path');
+        $artikel->update();
+
+        Konfiguration::where('artikel_id', $artikel->id)->delete();
+
+        foreach ($request->all() as $index => $item){
+            if ($item == 'true'){
+                Konfiguration::query()->create([
+                    'artikel_id' => $artikel->id,
+                    'inhalt_id' => $index,
+                ]);
+            }
+        }
+
+        return redirect(route('artikel.show', ['artikel' => $artikel->id]));
+    }
 }

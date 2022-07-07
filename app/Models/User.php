@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 use \App\Models\Kunde;
+use \App\Models\Warenkorb;
 
 class User extends Authenticatable
 {
@@ -53,5 +54,10 @@ class User extends Authenticatable
     public function kunde()
     {
         return $this->hasOne(Kunde::class);
+    }
+
+    public function warenkorb()
+    {
+        return $this->hasOne(Warenkorb::class);
     }
 }

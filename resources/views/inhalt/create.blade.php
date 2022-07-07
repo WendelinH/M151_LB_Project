@@ -7,11 +7,11 @@
 
             @auth()
             @if (Auth::user()->isAdmin())
-            <h1>Artikel</h1>
+            <h1>Inhalt</h1>
             <h2>Create</h2>
             <form 
                 method="post" 
-                action="{{ action([\App\Http\Controllers\ArtikelController::class, 'store']) }}">
+                action="{{ action([\App\Http\Controllers\InhaltController::class, 'store']) }}">
                 @csrf
                 @method('POST')
                 <div class="mb-3">
@@ -26,14 +26,6 @@
                     <label for="image_path" class="form-label">Bild name</label>
                     <input type="text" class="form-control" id="image_path" name="image_path">
                 </div>
-                @foreach ($inhalte as $index => $inhalt)
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="true" id="inhalt_{{ $index }}" name="{{ $inhalt->id }}">
-                    <label class="form-check-label" for="inhalt_{{ $index }}">
-                    {{ $inhalt->bezeichnung }}
-                    </label>
-                </div>
-                @endforeach
                 <button type="submit" class="btn btn-primary">Create</button>
             </form>
             @endif

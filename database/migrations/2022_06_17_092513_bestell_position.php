@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('bestell_positions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('artikel_id')->constrained();
-            $table->foreignId('bestellung_id')->constrained();
+            $table->foreignId('artikel_id')->constrained()->cascadeOnDelete();;
+            $table->foreignId('bestellung_id')->constrained()->cascadeOnDelete();;
             
             $table->timestamps();
         });

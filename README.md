@@ -117,3 +117,56 @@ Im verlaufe sin ein Paar Fragen aufgetaucht.
   - edit View xD
 - Show Kunde View anders lösen nicht mit show und id in Url
   - show und id in URL und überprüfen ob der richtige user eingelogt ist.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```sql
+INSERT INTO Artikels(
+    bezeichnung,
+    id,
+    preis,
+    image_path
+)
+VALUES('Etui v.2', 3, 9.90, 'etui.jpg'),(
+    'Holzschachtel v.2',
+    4,
+    11.90,
+    'holzschachtel.jpg'
+);
+INSERT INTO Inhalts(
+    id,
+    bezeichnung,
+    preis,
+    image_path
+)
+VALUES(
+    11,
+    'Bleistift v.2',
+    0.90,
+    'bleistift.jpg'
+),(12, 'Schere v.2', 3.50, 'schere.jpg'),(13, 'Radiergummi v.2', 0.90, 'gummi.jpg'),(14, 'Spitzer v.2', 5.00, 'spitzer.jpg'),(
+    15,
+    'Filzstift v.2',
+    1.50,
+    'filzstift.jpg'
+),(16, 'Zirkel v.2', 7.90, 'zirkel.jpg'),(17, 'Lineal v.2', 2.50, 'lineal.jpg'),(
+    18,
+    'Kugelschreiber v.2',
+    0.90,
+    'kugelschreiber.jpg'
+);
+INSERT INTO konfigurations(artikel_id, inhalt_id)
+VALUES(3, 11),(3, 12),(3, 13),(3, 14),(3, 15),(3, 18),(4, 11),(4, 13),(4, 14),(4, 15),(4, 16),(4, 17),(4, 18);
+```

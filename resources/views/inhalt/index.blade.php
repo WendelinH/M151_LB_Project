@@ -8,33 +8,33 @@
             <div class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <h1>Artikel</h1>
+                        <h1>Inhalt</h1>
                     </div>
                     @if (Auth::user()->isAdmin())
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="{{ route('artikel.create'); }}" class="btn btn-primary" role="button"><i class="las la-plus"></i>Create</a>
+                            <a href="{{ route('inhalt.create'); }}" class="btn btn-primary" role="button"><i class="las la-plus"></i>Create</a>
                         </li>
                     </ul>
                     @endif
                 </div>
             </div>
             <div class="row">
-                @foreach ($artikels as $artikel)
+                @foreach ($inhalts as $inhalt)
                 <div class="col-md-3">
                     <div class="card m-2" style="width: 18rem;">
-                        <img class="card-img-top" src="img/{{ $artikel->image_path }}" alt="{{ $artikel->image_path }}">
+                        <img class="card-img-top" src="img/{{ $inhalt->image_path }}" alt="{{ $inhalt->image_path }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $artikel->bezeichnung }}</h5>
-                            <p class="card-text">{{ $artikel->preis }} CHF</p>
-                            <a href="{{ route('artikel.show', ['artikel' => $artikel->id]); }}" class="btn btn-primary"><i class="las la-cart-plus"></i>Bestellen</a>
+                            <h5 class="card-title">{{ $inhalt->bezeichnung }}</h5>
+                            <p class="card-text">{{ $inhalt->preis }} CHF</p>
+                            <a href="{{ route('inhalt.show', ['inhalt' => $inhalt->id]); }}" class="btn btn-primary"><i class="las la-eye"></i> Show</a>
                             @if (Auth::user()->isAdmin())
                             <br>
-                            <a href="{{ route('artikel.edit', ['artikel'=> $artikel->id]); }}" class="btn btn-warning"><i class="las la-pen"></i>Edit</a>
+                            <a href="{{ route('inhalt.edit', ['inhalt'=> $inhalt->id]); }}" class="btn btn-warning"><i class="las la-pen"></i>Edit</a>
                             <br>
                             <form 
                                 method="post" 
-                                action="{{ action([\App\Http\Controllers\ArtikelController::class, 'destroy'], $artikel) }}" 
+                                action="{{ action([\App\Http\Controllers\InhaltController::class, 'destroy'], $inhalt) }}" 
                                 class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
