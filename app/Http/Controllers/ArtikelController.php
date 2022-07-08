@@ -64,7 +64,7 @@ class ArtikelController extends Controller
     public function destroy(Artikel $artikel): RedirectResponse
     {
         $artikel->delete();
-        return redirect(route('artikel.show'));;
+        return redirect(route('artikel.index'));;
     }
 
     public function edit(Artikel $artikel)

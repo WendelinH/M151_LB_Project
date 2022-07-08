@@ -34,8 +34,11 @@
                             </li>
                             @endforeach
                         </ul>
+                        <a href="{{ route('artikel.index'); }}" class="btn btn-info">
+                            <i class="las la-chevron-left"></i>
+                            Zurück zur Artikelauswahl
+                        </a>
                         <button type="submit" class="btn btn-primary"><i class="las la-cart-plus"></i>{{ __('Bestellen') }}</button>
-
                     </form>
                     @if (Auth::user()->isAdmin())
                     <a href="{{ route('artikel.edit', ['artikel'=> $artikel->id]); }}" class="btn btn-warning"><i class="las la-pen"></i>Edit</a>

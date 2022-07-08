@@ -27,67 +27,50 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand fs-2" href="{{ route('home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse fs-4" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @auth
-
+                        @if (Auth::user()->isAdmin())
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ __('Artikel') }}
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('artikel.index') }}">{{ __('Artikel') }}</a></li>
-                                <li><a class="dropdown-item" href="{{ route('artikel.create') }}"><i class="las la-plus"></i>{{ __('Create') }}</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="{{ route('artikel.create') }}"><i class="las la-plus"></i>{{ __('Create') }}</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ __('Kunde') }}
+                                {{ __('Inhalt') }}
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{ route('kunde.create') }}"><i class="las la-plus"></i>{{ __('Create') }}</a></li>
-                                <li><a class="dropdown-item" href="#">{{ __('Link 2') }}</a></li>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('inhalt.index') }}">{{ __('Inhalt') }}</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('inhalt.create') }}"><i class="las la-plus"></i>{{ __('Create') }}</a></li>
+                                
                             </ul>
                         </li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ __('Dropdown 2') }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">{{ __('Link 1') }}</a></li>
-                                <li><a class="dropdown-item" href="#">{{ __('Link 2') }}</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ __('Dropdown 3') }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">{{ __('Link 1') }}</a></li>
-                                <li><a class="dropdown-item" href="#">{{ __('Link 2') }}</a></li>
-                            </ul>
-                        </li>
+                        @endif
                         @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://icons8.com/line-awesome">{{ __('icons8.com line-awesome') }}</a>
-                        </li>
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
@@ -104,7 +87,12 @@
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} {{ Auth::user()->isAdmin() ? '(A)' : ''}}
+                                {{ Auth::user()->name }}
+                                @if(Auth::user()->isAdmin())
+                                <i class="las la-user-shield"></i>
+                                @else
+                                <i class="lar la-user"></i>
+                                @endif
                                 @if(Auth::user()->kunde)
                                 | {{ Auth::user()->kunde->vorname}}
                                 @endif
